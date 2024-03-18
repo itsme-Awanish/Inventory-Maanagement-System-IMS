@@ -14,13 +14,13 @@
         <form action="/order/addToCart" method="post">
 
             <label for="phoneNumber">Phone Number:</label>
-            <input type="number" min="0" oninput="limitInputLength(this)" value="${(Reciept.getPhone_no()!= null)?Reciept.getPhone_no():""}" id="phoneNumber" name="phoneNumber" ${(Reciept.isNOFilled())?"disabled":""} ${(Reciept.isNOFilled())?"":"required"} placeholder="${(Reciept.getPhone_no()!= null)?Reciept.getPhone_no():""}"/>
+            <input type="number" min="0" autocomplete="off" oninput="limitInputLength(this)" value="${(Reciept.getPhone_no()!= null)?Reciept.getPhone_no():""}" id="phoneNumber" name="phoneNumber" ${(Reciept.isNOFilled())?"disabled":""} ${(Reciept.isNOFilled())?"":"required"} placeholder="${(Reciept.getPhone_no()!= null)?Reciept.getPhone_no():""}"/>
 
             <button type="submit" formaction="/order/findCustomer" ${(Reciept.isNOFilled())?"disabled":""}>
                 <i class="fas fa-search"></i>
             </button><br/>
             <label for="customerName">Customer Name:</label>
-            <input type="text" value="${Reciept.getCname()}" id="customerName" name="customerName"  ${(Reciept.isFilled())?"disabled":""} placeholder="${Reciept.getCname()}"/>
+            <input type="text" value="${Reciept.getCname()}" autocomplete="off" id="customerName" name="customerName"  ${(Reciept.isFilled())?"disabled":""} placeholder="${Reciept.getCname()}"/>
 
             <label for="categorySelect">Select Category:</label>
             <select id="categorySelect" name="selectedCategory">
