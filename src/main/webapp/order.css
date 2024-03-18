@@ -1,0 +1,100 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    max-width: 800px;
+    margin: 50 auto;
+    border-radius: 5px;
+
+    display: flex;
+}
+
+.sectionOne {
+    margin-bottom: 20px;
+    background-color: rgb(128, 222, 236);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+
+    padding: 20px;
+}
+
+.sectionOne label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.sectionOne input[type="text"] ,
+.sectionOne select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+}
+
+.sectionOne button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+
+}
+.sectionTwo {
+    position: relative;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px rgba(86, 227, 249, 0.683);
+    padding: 20px;
+}
+
+.sectionTwo ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sectionTwo li {
+    margin-bottom: 10px;
+}
+
+.sectionTwo table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.sectionTwo th,
+.sectionTwo td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.sectionTwo th {
+    background-color: #f2f2f2;
+}
+
+.sectionTwo button[type="submit"] {
+    position: absolute;
+    background-color: #4CAF50;
+    color: white;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    right: 0;
+    bottom: 0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

@@ -1,0 +1,130 @@
+@media screen and (max-width: 302px){
+    .content{
+        flex-direction: column;
+    }
+
+    .addcategoryform{
+        margin-right: 0;
+        margin-bottom: 20px;
+        height: auto;
+    }
+
+    .tableview{
+        height: auto;
+    }
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.addcategoryform{
+    background-color: #a4eeee;
+    margin-right: 20px;
+    height: 100vh;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.addcategoryform h1{
+    margin-bottom: -35%;
+}
+
+.addcategoryform form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.addcategoryform input{
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button-container{
+    display: flex;
+    gap: 10px;
+}
+
+.addcategoryform button{
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tableview{
+    border: 1px solid #ccc;
+    height: 100vh;
+    width: 100%;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.categorydetails{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.categorydetails tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.categorydetails tr:nth-child(odd){
+    background-color: #fff;
+}
+
+.categorydetails th,
+.categorydetails td{
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 768px){
+    .content{
+        flex-direction: column;
+    }
+
+    .addcategoryform{
+        margin-right: 0;
+        margin-bottom: 20px;
+        height: auto;
+    }
+
+    .tableview{
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .addcategoryform input,
+    .addcategoryform button{
+        width: auto;
+    }
+}
