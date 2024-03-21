@@ -5,6 +5,7 @@ import com.ims.inventory_management_system.repository.CustomerRepo;
 import com.ims.inventory_management_system.service.CategoryService;
 import com.ims.inventory_management_system.service.OrderService;
 import com.ims.inventory_management_system.service.ProductService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -86,6 +87,7 @@ public class OrderController {
             reciept.setCname(c.getCname());
             reciept.setFilled(true);
             reciept.setNOFilled(true);
+            reciept.setCustFoundDb(true);
         }else{
             reciept.setMessage("Customer is not found please add name");
             reciept.setPhone_no(phno);
@@ -102,10 +104,24 @@ public class OrderController {
             reciept.setCname(cname);
             reciept.setFilled(true);
         }
-        if (proid != null && quantity != null) {
-            boolean add = reciept.getCart().add(oService.getProductForCart(proid, quantity));
-            reciept.setTotalAmount(oService.getTotalCartAmount(reciept.getCart()));
-            reciept.setMessage(null);
+        if (proid != null && quantity != null && reciept.isNOFilled() && reciept.isFilled()) {
+            boolean productInCart = false;
+            Product p = new Product();
+            p = pService.getProductById(proid);
+            for(Cart c:reciept.getCart())
+                if (c.getProid() == proid) productInCart = true;
+
+            if (!productInCart){
+                if (p.getQuantity() >= quantity) {
+                    boolean add = reciept.getCart().add(oService.getProductForCart(proid, quantity));
+                    reciept.setTotalAmount(oService.getTotalCartAmount(reciept.getCart()));
+                    reciept.setMessage(null);
+                } else {
+                    reciept.setMessage("Their is only "+p.getQuantity()+" Pieces of "+p.getProName()+" left in Inventory");
+                }
+            }else {
+                reciept.setMessage("The product is Already present in the cart");
+            }
         }else {
             reciept.setMessage("Please add product");
         }
@@ -121,16 +137,24 @@ public class OrderController {
         reciept.setPhone_no(null);
         reciept.setFilled(false);
         reciept.setNOFilled(false);
+        reciept.setDop(null);
+        reciept.setOid(null);
+        reciept.setTotalAmount(0);
+        reciept.setCustFoundDb(false);
+        reciept.setMessage(null);
         return "redirect:/order/start";
     }
 
     @GetMapping("/confirm")
-    public String placeOrder(@ModelAttribute("Reciept")Reciept reciept){
-        Boolean isSucessfull = oService.saveAll(reciept);
-
-        return "redirect:/order/start";
+    public ModelAndView placeOrder(@ModelAttribute("Reciept")Reciept reciept, HttpSession session){
+        ModelAndView mv = new ModelAndView();
+        reciept.setDop(oService.getCurrentSqlDate());
+        reciept.setOid(oService.generateRandomString("O"));
+        oService.saveAll(reciept);
+        mv.addObject("Reciept",reciept);
+        session.invalidate();
+        mv.setViewName("reciept");
+        return mv;
     }
-
-
 
 }

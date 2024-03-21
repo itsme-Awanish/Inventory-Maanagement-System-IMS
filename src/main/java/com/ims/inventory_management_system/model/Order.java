@@ -2,10 +2,12 @@ package com.ims.inventory_management_system.model;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 public class Order {
     private String oid;
-    private String dop;
+    private Date dop;
 
     private String cid;
 
@@ -17,11 +19,11 @@ public class Order {
         this.oid = oid;
     }
 
-    public String getDop() {
+    public Date getDop() {
         return dop;
     }
 
-    public void setDop(String dop) {
+    public void setDop(Date dop) {
         this.dop = dop;
     }
 

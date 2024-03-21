@@ -70,7 +70,9 @@
             <li>Total Price: ${Reciept.getTotalAmount()}</li>
         </ul>
         <p style="color: red; font-weight: bold; font-style: italic" >${Reciept.getMessage()}</p>
-        <button type="submit" formaction="/order/confirm">Place Order</button>
+        <form action="/order/confirm" method="get">
+        <button type="submit">Place Order</button>
+        </form>
     </div>
 </div>
 <!-- AJAX script to fetch and display products -->

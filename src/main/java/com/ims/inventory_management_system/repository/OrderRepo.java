@@ -30,8 +30,7 @@ public class OrderRepo {
     public void saveProduct(String oid, List<Cart> c){
 
         String sql = "insert into cart(oid,proname,quantity,price,category) values(?,?,?,?,?)";
-        for(int i=0;i<=c.size();i++){
-            Cart cart = c.get(i);
+        for(Cart cart:c){
             Jdbc.update(sql, oid, cart.getProname(),cart.getQuantity(), cart.getPrice(), cart.getCategory());
         }
     }
@@ -51,7 +50,7 @@ public class OrderRepo {
         return Jdbc.query(sql,(rs,rownum)->{
             Order o = new Order();
             o.setOid(rs.getString("oid"));
-            o.setDop(rs.getString("dop"));
+            o.setDop(rs.getDate("dop"));
             o.setCid(rs.getString("cid"));
             return o;
         });
@@ -62,7 +61,7 @@ public class OrderRepo {
         return Jdbc.query(sql,new Object[] {cid},(rs,rownum)->{
            Order o = new Order();
            o.setOid(rs.getString("oid"));
-           o.setDop(rs.getString("dop"));
+           o.setDop(rs.getDate("dop"));
            o.setCid(rs.getString("cid"));
            return o;
         });

@@ -3,24 +3,30 @@ package com.ims.inventory_management_system.model;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Component
 public class Reciept {
     private String oid;
-
-    private String dop;
+    private Date dop;
     private String cname = null;
     private Long phone_no;
-
     private List<Cart> cart = new ArrayList<Cart>();
-
     private int totalAmount;
-
     private boolean isFilled = false;
-
     private boolean isNOFilled = false;
+    private boolean custFoundDb = false;
     private String message;
+
+
+    public boolean isCustFoundDb() {
+        return custFoundDb;
+    }
+
+    public void setCustFoundDb(boolean custFoundDb) {
+        this.custFoundDb = custFoundDb;
+    }
 
     public String getOid() {
         return oid;
@@ -30,11 +36,10 @@ public class Reciept {
         this.oid = oid;
     }
 
-    public String getDop() {
+    public Date getDop() {
         return dop;
     }
-
-    public void setDop(String dop) {
+    public void setDop(Date dop) {
         this.dop = dop;
     }
 

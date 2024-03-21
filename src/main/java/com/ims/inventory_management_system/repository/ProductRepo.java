@@ -36,7 +36,7 @@ public class ProductRepo {
     }
 
     public void update(Product pro){
-        String sql = "update product set (proname=?, quantity=?, price=?, category=?) where proid=?";
+        String sql = "update product set proname=?, quantity=?, price=?, category=? where proid=?";
         int rows = jdbc.update(sql,pro.getProName(),pro.getQuantity(),pro.getPrice(),pro.getCategory(),pro.getProId());
         System.out.println(rows + "affected");
     }
