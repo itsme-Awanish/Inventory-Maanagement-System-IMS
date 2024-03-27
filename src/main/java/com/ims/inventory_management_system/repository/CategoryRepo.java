@@ -42,7 +42,7 @@ public class CategoryRepo {
         System.out.println(rows + "affected");
     }
     public List<Category> findAll() {
-        String sql = "select * from category";
+        String sql = "select * from category order by catid asc";
         return jdbc.query(sql,(rs, rowNum)->{
             Category cat = new Category();
             cat.setCatId(rs.getInt("catId"));
