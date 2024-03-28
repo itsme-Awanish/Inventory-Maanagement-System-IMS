@@ -34,7 +34,7 @@ public class LoginController {
         if (u.getUname().equals("admin") && u.getUpass().equals("admin")) {
             mv.setViewName("redirect:/user");
         } else if (service.isValid(u)) {
-            mv.setViewName("dashboard");
+            mv.setViewName("redirect:/dashboard");
         }else {
             mv.addObject("response","Invalid user");
             mv.setViewName("login");

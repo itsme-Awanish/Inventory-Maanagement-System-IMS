@@ -48,7 +48,7 @@ public class CategoryController {
             mv.setViewName("deletecategory");
         }
         else{
-            mv.setViewName("dashboard");
+            mv.setViewName("redirect:/dashboard");
         }
         return mv;
     }

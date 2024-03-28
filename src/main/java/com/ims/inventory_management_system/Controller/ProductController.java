@@ -46,7 +46,7 @@ public class ProductController {
             mv.setViewName("deleteproduct");
         }
         else{
-            mv.setViewName("product");
+            mv.setViewName("redirect:/dashboard");
         }
         return mv;
     }

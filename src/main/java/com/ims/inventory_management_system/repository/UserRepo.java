@@ -2,6 +2,7 @@ package com.ims.inventory_management_system.repository;
 
 import com.ims.inventory_management_system.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -35,6 +36,22 @@ public class UserRepo {
             return u;
         });
     }
+    public Users findByUsername(String username) {
+        String sql = "SELECT * FROM users WHERE uname = ?";
+        try {
+            return jdbc.queryForObject(sql, new Object[]{username}, (rs, rowNum) -> {
+                Users user = new Users();
+                user.setUid(rs.getInt("uid"));
+                user.setName(rs.getString("name"));
+                user.setUname(rs.getString("uname"));
+                user.setUpass(rs.getString("upass"));
+                return user;
+            });
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
     public int getMaxUid() {
         String sql = "SELECT MAX(uid) AS max_value FROM users";
         return jdbc.queryForObject(sql, Integer.class);
@@ -51,4 +68,6 @@ public class UserRepo {
         int rows = jdbc.update(sql,uid);
         System.out.println(rows + "effected");
     }
+
+
 }

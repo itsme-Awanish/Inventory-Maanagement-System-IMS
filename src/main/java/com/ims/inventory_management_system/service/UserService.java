@@ -43,6 +43,10 @@ public class UserService {
         return u1;
     }
 
+    public Users getByUsername(String userName){
+        return repo.findByUsername(userName);
+    }
+
     public void update(Users u) {
         repo.updateData(u);
     }

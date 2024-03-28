@@ -1,0 +1,145 @@
+#username:hover #logout {
+    display: block;
+}
+
+#logout {
+    display: none;
+}
+
+#logout a {
+    color: darkblue;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: azure;
+}
+
+.navbar {
+    background:#0ef;
+    color: darkblue;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 5px darkblue;
+}
+
+.nav-link {
+    color: darkblue;
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+.nav-link.active {
+    color: red;
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: red;
+}
+
+i {
+    margin-right: 3px;
+}
+
+#username {
+    margin-right: 20px;
+}
+
+.main {
+    padding: 20px;
+}
+
+#charts {
+    display: flex;
+    justify-content: space-between;
+}
+
+.chart {
+    width: 45%;
+    display: inline-flex;
+    height: 400px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+    color: darkblue;
+    box-shadow: 3px 3px 5px darkblue;
+    border-radius: 10px;
+}
+
+#legend {
+    margin-right: 5%;
+    min-width: fit-content;
+    overflow: auto;
+}
+
+.chart #pie {
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.inventory-details,
+.order-history {
+    margin-top: 20px;
+    color: darkblue;
+}
+
+#line-chart {
+    overflow-x: scroll;
+    width: 600px;
+    height: 350px;
+}
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 2px;
+}
+.dot {
+    fill: red;
+    stroke: #fff;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-table th,
+.order-table td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.order-table th {
+    background-color: lightgray;
+}
+
+.order-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    /* Adjust scrollbar width */
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(transparent, #0ef);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(transparent, rgb(12, 243, 12));
+    border-radius: 6px;
+}
