@@ -38,7 +38,7 @@ public class UserController {
         } else if ("Delete User".equals(action)) {
             mv.setViewName("deluser");
         } else if ("Go to Dashboard".equals(action)) {
-            mv.setViewName("dashboard");
+            mv.setViewName("redirect:/dashboard");
         } else {
             mv.setViewName("user");
         }

@@ -67,7 +67,7 @@
                     <td>
                         <ul>
                             <c:forEach var = "product" items="${roh.crt}">
-                                <li>${product.proname} for QTY <span style="color: green;font-weight: bolder">${product.quantity}</span> : <span style="color: maroon;font-weight: bolder">&#8377;${product.price * product.quantity}</span></li>
+                                <li>${product.proname} for QTY <span style="color: green;font-weight: bolder">${product.quantity}</span> : <span style="color: maroon;font-weight: bolder">&#8377;${product.price}</span></li>
                             </c:forEach>
                         </ul>
                     </td>
@@ -117,6 +117,9 @@
         { date: "${item.dop}", value: ${item.price} }<c:if test="${!loop.last}">,</c:if>
         </c:forEach>
     ];
+    lineData.sort(function (a, b) {
+        return a.date - b.date;
+    });
     var margin = { top: 20, right: 50, bottom: 30, left: 50 };
     var width = lineData.length * 500; // Adjust as needed
     var height = 300 - margin.top - margin.bottom;

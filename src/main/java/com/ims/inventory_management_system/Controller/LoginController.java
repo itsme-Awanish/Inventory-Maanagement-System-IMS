@@ -41,22 +41,5 @@ public class LoginController {
         }
         return mv;
     }
-
-    @PostMapping("/actionmanage")
-    public ModelAndView manage(String action){
-        ModelAndView mv = new ModelAndView();
-        if("Manage Category".equals(action)){
-            mv.setViewName("redirect:/category");
-        } else if ("Manage Product".equals(action)) {
-            mv.setViewName("redirect:/product");
-        } else if ("Place Order".equals(action)) {
-            mv.setViewName("redirect:/order/");
-        }else {
-            mv.setViewName("dashboard");
-        }
-        return mv;
-    }
-
-
 }
 

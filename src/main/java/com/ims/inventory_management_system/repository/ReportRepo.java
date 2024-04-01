@@ -31,7 +31,7 @@ public class ReportRepo {
         });
     }
     public List<RecentOrdHist> orderHistory(){
-        String sql = "SELECT c.cname AS 'Customer Name', o.oid AS 'Order ID', o.dop AS 'Date of Purchase', SUM(cart.price * cart.quantity) AS 'Total Amount' " +
+        String sql = "SELECT c.cname AS 'Customer Name', o.oid AS 'Order ID', o.dop AS 'Date of Purchase', SUM(cart.price) AS 'Total Amount' " +
                 "FROM `orders` o " +
                 "JOIN `cart` ON o.oid = cart.oid " +
                 "JOIN `customer` c ON o.cid = c.cid " +
@@ -58,10 +58,11 @@ public class ReportRepo {
             return o;
         });
     }public List<SalesReport> findSalesReport(){
-        String sql = "SELECT o.dop AS 'Date of Purchase', SUM(c.price * c.quantity) AS 'Total Price'\n" +
+        String sql = "SELECT o.dop AS 'Date of Purchase', SUM(c.price) AS 'Total Price'\n" +
                 "FROM `orders` o\n" +
                 "JOIN `cart` c ON o.oid = c.oid\n" +
-                "GROUP BY o.dop;";
+                "GROUP BY o.dop\n" +
+                "ORDER BY o.dop ASC;";
         return jdbc.query(sql,(rs,rownum)->{
             SalesReport sr = new SalesReport();
             sr.setDop(rs.getDate("Date of Purchase"));
@@ -82,7 +83,7 @@ public class ReportRepo {
     }
 
     public Long getLastMonthSales() {
-        String sql = "SELECT SUM(c.price * c.quantity) AS 'Last Month Sales' " +
+        String sql = "SELECT SUM(c.price) AS 'Last Month Sales' " +
                 "FROM `orders` o " +
                 "JOIN `cart` c ON o.oid = c.oid " +
                 "WHERE MONTH(o.dop) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH) " +
@@ -91,7 +92,7 @@ public class ReportRepo {
         return jdbc.queryForObject(sql, Long.class);
     }
     public Long getThisMonthSales() {
-        String sql = "SELECT SUM(c.price * c.quantity) AS 'This Month Sales' " +
+        String sql = "SELECT SUM(c.price) AS 'This Month Sales' " +
                 "FROM `orders` o " +
                 "JOIN `cart` c ON o.oid = c.oid " +
                 "WHERE MONTH(o.dop) = MONTH(CURRENT_DATE) " +
