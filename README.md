@@ -3,7 +3,7 @@ The Inventory Management System (IMS) is a vital application designed to streaml
 In this project, I focus on creating a web-based application that efficiently handles inventory management. Our system aims to provide an intuitive interface for managing stock, ensuring accuracy, and optimizing resource utilization.
 In IMS I have tried to make the entire processes (user registration and management, category registration and management, product registration and management, orders and inventory process) computer based and automatically. Accordingly the process, the procedure of managing an inventory is same as traditional, but it would be faster, accurate, and secure also.
 
-Landing Page of IMS:
+### Output of IMS:
 
 ##### Landing page of IMS
 ![Screenshot 2024-03-26 041113](https://github.com/itsme-Awanish/Inventory-Maanagement-System-IMS/assets/32138228/0c171bf7-ade7-497f-82cc-b38c70698ce6)
